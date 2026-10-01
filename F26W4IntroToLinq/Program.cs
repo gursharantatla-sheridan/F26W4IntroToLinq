@@ -67,17 +67,48 @@
                 new Employee("James", "Indigo", 4500)
             };
 
-            foreach (var e in employees)
-                Console.WriteLine(e);
+            foreach (var emp in employees)
+                Console.WriteLine(emp);
             Console.WriteLine("\n\n");
+
+
 
 
             var between4k6k = from e in employees
                               where e.Salary >= 4000 && e.Salary <= 6000
                               select e;
 
-            foreach (var e in between4k6k)
-                Console.WriteLine(e);
+            foreach (var emp in between4k6k)
+                Console.WriteLine(emp);
+            Console.WriteLine("\n\n");
+
+
+
+
+            var sortedByLastName = from e in employees
+                                   orderby e.LastName, e.FirstName
+                                   select e;
+
+            foreach (var emp in sortedByLastName)
+                Console.WriteLine(emp);
+            Console.WriteLine("\n\n");
+
+
+
+            var lastnames = from e in employees
+                            select e.LastName;
+
+            foreach (var emp in lastnames.Distinct())
+                Console.WriteLine(emp);
+            Console.WriteLine("\n\n");
+
+
+
+            var empFullName = from e in employees
+                              select new { e.FirstName, e.LastName };
+
+            foreach (var emp in empFullName)
+                Console.WriteLine(emp);
             Console.WriteLine("\n\n");
         }
     }
