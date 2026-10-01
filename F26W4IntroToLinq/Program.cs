@@ -51,6 +51,33 @@
             // deferred execution
             foreach (var i in startsWithR)
                 Console.WriteLine(i);
+            Console.WriteLine("\n\n\n\n");
+
+
+
+
+            List<Employee> employees = new List<Employee>()
+            {
+                new Employee("John", "Green", 5000),
+                new Employee("Anne", "Indigo", 4000),
+                new Employee("Mark", "Indigo", 5500),
+                new Employee("Alice", "Brown", 7000),
+                new Employee("John", "Indigo", 3000),
+                new Employee("Lucy", "White", 6000),
+                new Employee("James", "Indigo", 4500)
+            };
+
+            foreach (var e in employees)
+                Console.WriteLine(e);
+            Console.WriteLine("\n\n");
+
+
+            var between4k6k = from e in employees
+                              where e.Salary >= 4000 && e.Salary <= 6000
+                              select e;
+
+            foreach (var e in between4k6k)
+                Console.WriteLine(e);
             Console.WriteLine("\n\n");
         }
     }
